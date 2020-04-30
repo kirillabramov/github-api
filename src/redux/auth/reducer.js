@@ -1,10 +1,26 @@
+import { SET_AUTH_CODE, SET_ACCESS_TOKEN } from "./actions";
+
 const defaultState = {
-  test: 1,
+  code: "",
 };
 
 export const authReducer = (state = defaultState, action) => {
-  switch (action) {
+  switch (action.type) {
+    case SET_AUTH_CODE: {
+      const { code } = action.payload;
+      return {
+        ...state,
+        code,
+      };
+    }
+    case SET_ACCESS_TOKEN: {
+      const { token } = action.payload;
+      return {
+        ...state,
+        token,
+      };
+    }
     default:
-      return defaultState;
+      return state;
   }
 };
