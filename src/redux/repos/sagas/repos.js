@@ -1,5 +1,5 @@
 import { call, takeEvery, put, select } from "redux-saga/effects";
-import { getRepositoriesRequset } from "../../../data-providers/auth";
+import { getRepositoriesRequset } from "../../../data-providers";
 import { GET_REPOS, setStatus, setRepositories, setHasMore } from "../actions";
 import fetchStatuses from "../../../constants/fetchStatuses";
 import { getReposSelector } from "../selectors";

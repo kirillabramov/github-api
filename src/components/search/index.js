@@ -5,25 +5,40 @@ import {
   setSearchValue,
   setIsInfinite,
 } from "../../redux/repos/actions";
-import Input from "../input";
 import { getSearchValueSelector } from "../../redux/repos/selectors";
+import keyCodes from "../../constants/keyCodes";
 
 const Search = () => {
   const dispatch = useDispatch();
   const searchValue = useSelector(getSearchValueSelector);
 
+  const handleSearch = () => {
+    dispatch(setIsInfinite(false));
+    dispatch(getRepositories());
+  };
+
+  const onKeyDown = ({ keyCode }) => {
+    if (keyCode === keyCodes.ENTER) {
+      handleSearch();
+    }
+    if (keyCode === keyCodes.ESC) {
+      dispatch(setSearchValue(""));
+    }
+  };
+
   const onInputChange = ({ target: { value } }) => {
     dispatch(setSearchValue(value));
   };
 
-  const onSearchClick = () => {
-    dispatch(setIsInfinite(false));
-    dispatch(getRepositories());
-  };
   return (
     <div>
-      <Input value={searchValue} onChange={onInputChange} />
-      <button onClick={onSearchClick}>Search</button>
+      <input
+        type="text"
+        onChange={onInputChange}
+        value={searchValue}
+        onKeyDown={onKeyDown}
+      />
+      <button onClick={handleSearch}>Search</button>
     </div>
   );
 };

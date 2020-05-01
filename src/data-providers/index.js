@@ -1,7 +1,7 @@
-import { CLIENT_ID, CLIENT_SECRET } from "../../constants/github";
-import endpoints from "../../constants/endpoints";
-import ls from "../../constants/localStorage";
-import perPage from "../../constants/perPage";
+import { CLIENT_ID, CLIENT_SECRET } from "../constants/github";
+import endpoints from "../constants/endpoints";
+import ls from "../constants/localStorage";
+import perPage from "../constants/perPage";
 
 export const getAccessTokenRequest = (code) =>
   fetch(

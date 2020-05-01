@@ -6,6 +6,7 @@ export const SET_HAS_MORE = "SET_HAS_MORE";
 export const SET_PAGE_NUMBER = "SET_PAGE_NUMBER";
 export const SET_SORTING = "SET_SORTING";
 export const SET_IS_INFINITE = "SET_IS_INFINITE";
+export const SET_IS_MODAL_OPEN = "SET_IS_MODAL_OPEN";
 
 export const getRepositories = () => ({
   type: GET_REPOS,
@@ -44,4 +45,9 @@ export const setSorting = (sorting) => ({
 export const setIsInfinite = (isInfinite) => ({
   type: SET_IS_INFINITE,
   payload: { isInfinite },
+});
+
+export const setIsModalOpen = (isModalOpen) => ({
+  type: SET_IS_MODAL_OPEN,
+  payload: { isModalOpen },
 });

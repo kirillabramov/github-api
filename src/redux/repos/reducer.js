@@ -6,6 +6,7 @@ import {
   SET_HAS_MORE,
   SET_SORTING,
   SET_IS_INFINITE,
+  SET_IS_MODAL_OPEN,
 } from "./actions";
 
 const defaultState = {
@@ -16,6 +17,7 @@ const defaultState = {
   pageNumber: 1,
   sorting: "",
   isInfinite: false,
+  isModalOpen: false,
 };
 
 export const reposReducer = (state = defaultState, action) => {
@@ -72,6 +74,14 @@ export const reposReducer = (state = defaultState, action) => {
         isInfinite,
       };
     }
+    case SET_IS_MODAL_OPEN: {
+      const { isModalOpen } = action.payload;
+      return {
+        ...state,
+        isModalOpen,
+      };
+    }
+
     default:
       return state;
   }

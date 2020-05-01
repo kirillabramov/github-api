@@ -1,7 +1,13 @@
-import { SET_AUTH_CODE, SET_ACCESS_TOKEN, SET_IS_AUTHORIZED } from "./actions";
+import {
+  SET_AUTH_CODE,
+  SET_ACCESS_TOKEN,
+  SET_IS_AUTHORIZED,
+  SET_FETCH_STATUS,
+} from "./actions";
 
 const defaultState = {
   isAuthorized: false,
+  status: "",
 };
 
 export const authReducer = (state = defaultState, action) => {
@@ -26,6 +32,13 @@ export const authReducer = (state = defaultState, action) => {
       return {
         ...state,
         isAuthorized,
+      };
+    }
+    case SET_FETCH_STATUS: {
+      const { status } = action.payload;
+      return {
+        ...state,
+        status,
       };
     }
     default:

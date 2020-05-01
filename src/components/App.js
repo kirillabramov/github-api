@@ -3,7 +3,7 @@ import Public from "./navigation/Public";
 import Private from "./navigation/Private";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsAuthorized } from "../redux/auth/actions";
-import { isAuthorized } from "../data-providers/auth";
+import { isAuthorized } from "../data-providers";
 import { getIsAuthorizedSelector } from "../redux/auth/selectors";
 
 function App() {

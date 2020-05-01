@@ -7,11 +7,7 @@ import {
   setSorting,
   setIsInfinite,
 } from "../../redux/repos/actions";
-
-const options = [
-  { value: "forks", label: "Forks" },
-  { value: "stars", label: "Stars" },
-];
+import options from "../../constants/sortingOptions";
 
 const Sorting = () => {
   const dispatch = useDispatch();
