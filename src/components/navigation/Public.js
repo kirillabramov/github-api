@@ -1,11 +1,16 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import GithubLogin from "../github-login";
 
 const Public = () => {
   return (
     <Switch>
-      <Route path={["/", "/callback"]} exact component={GithubLogin} />
+      <Route path={["/login", "/callback"]} exact component={GithubLogin} />
+      <Redirect
+        to={{
+          pathname: "/login",
+        }}
+      />
     </Switch>
   );
 };

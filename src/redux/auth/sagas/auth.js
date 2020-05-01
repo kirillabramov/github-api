@@ -3,6 +3,7 @@ import { getAccessTokenRequest } from "../../../data-providers/auth";
 import { GET_ACCESS_TOKEN, setAccessToken } from "../actions";
 import { getAuthCodeSelector } from "../selectors";
 import { parse } from "query-string";
+import ls from "../../../constants/localStorage";
 
 export function* getAccessTokenSaga() {
   try {
@@ -11,10 +12,11 @@ export function* getAccessTokenSaga() {
     const { access_token } = parse(data);
 
     if (access_token) {
+      localStorage.setItem(ls.token, access_token);
       yield put(setAccessToken(access_token));
     }
   } catch (error) {
-    console.log(error);
+    console.warn(error);
   }
 }
 

@@ -1,31 +1,20 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import Input from "./input";
-import { CLIENT_ID } from "../constants/github";
+import React, { useEffect } from "react";
 import Public from "./navigation/Public";
+import Private from "./navigation/Private";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsAuthorized } from "../redux/auth/actions";
+import { isAuthorized } from "../data-providers/auth";
+import { getIsAuthorizedSelector } from "../redux/auth/selectors";
 
-function App(props) {
-  const [username, setUsername] = useState("");
+function App() {
+  const dispatch = useDispatch();
+  const isAuth = useSelector(getIsAuthorizedSelector);
 
-  const onUsernameChange = ({ target: { value } }) => {
-    setUsername(value);
-  };
+  useEffect(() => {
+    dispatch(setIsAuthorized(isAuthorized()));
+  }, [isAuth, dispatch]);
 
-  // const getAccessToken = fetch("https://github.com/login/oauth/access_token", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json;charset=utf-8",
-  //     "Access-Control-Allow-Origin": "*",
-  //   },
-  //   body: JSON.stringify({}),
-  // });
-  const fetchLogin = fetch("");
-
-  return (
-    <div className="App">
-      <Public />
-    </div>
-  );
+  return <div className="App">{isAuth ? <Private /> : <Public />}</div>;
 }
 
 export default App;

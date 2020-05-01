@@ -1,5 +1,7 @@
 import { CLIENT_ID, CLIENT_SECRET } from "../../constants/github";
 import endpoints from "../../constants/endpoints";
+import ls from "../../constants/localStorage";
+import perPage from "../../constants/perPage";
 
 export const getAccessTokenRequest = (code) =>
   fetch(
@@ -13,3 +15,13 @@ export const getAccessTokenRequest = (code) =>
       },
     }
   ).then((response) => response.text());
+
+export const isAuthorized = () => !!localStorage.getItem(ls.token);
+
+export const getRepositoriesRequset = (query, pageNumber, sorting) =>
+  fetch(
+    `${endpoints.GET_REPOSITORIES_WITH_QUERY}${query}&page=${pageNumber}&per_page=${perPage}&sort=${sorting}`,
+    {
+      method: "GET",
+    }
+  ).then((response) => response.json());
