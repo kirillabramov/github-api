@@ -4,16 +4,16 @@ import endpoints from "../../constants/endpoints";
 import { useDispatch } from "react-redux";
 import { setAuthCode, getAccessToken } from "../../redux/auth/actions";
 
-const LoginButton = ({ location: { search } }) => {
+const LoginButton = ({ urlQuery }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const parsedSearch = qs.parse(search);
-    if (parsedSearch && parsedSearch.code) {
-      dispatch(setAuthCode(parsedSearch.code));
+    const parsedUrlQuery = qs.parse(urlQuery);
+    if (parsedUrlQuery && parsedUrlQuery.code) {
+      dispatch(setAuthCode(parsedUrlQuery.code));
       dispatch(getAccessToken());
     }
-  }, [search, dispatch]);
+  }, [urlQuery, dispatch]);
 
   const onClick = () => {
     window.location.href = endpoints.GITHUB_AUTHORIZE;
