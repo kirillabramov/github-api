@@ -1,15 +1,15 @@
 import React from "react";
 import Select from "react-select";
-import styles from "./Sorting.module.scss";
+import styles from "../SearchPage.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getRepositories,
   setSorting,
   setIsInfinite,
-} from "../../redux/repos/actions";
-import options from "../../constants/sortingOptions";
+} from "../../../redux/repos/actions";
+import options from "../../../constants/sortingOptions";
 
-const Sorting = () => {
+const SortingView = () => {
   const dispatch = useDispatch();
   const { sorting } = useSelector(getRepositories);
 
@@ -25,4 +25,4 @@ const Sorting = () => {
   );
 };
 
-export default Sorting;
+export default SortingView;

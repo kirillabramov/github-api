@@ -4,11 +4,11 @@ import {
   getRepositories,
   setSearchValue,
   setIsInfinite,
-} from "../../redux/repos/actions";
-import { getSearchValueSelector } from "../../redux/repos/selectors";
-import keyCodes from "../../constants/keyCodes";
+} from "../../../redux/repos/actions";
+import { getSearchValueSelector } from "../../../redux/repos/selectors";
+import keyCodes from "../../../constants/keyCodes";
 
-const Search = () => {
+const SearchView = () => {
   const dispatch = useDispatch();
   const searchValue = useSelector(getSearchValueSelector);
 
@@ -43,4 +43,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchView;

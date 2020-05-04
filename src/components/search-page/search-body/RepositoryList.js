@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react";
-import Repository from ".";
-import styles from "./Repository.module.scss";
+import Repository from "../../common/repository";
+import styles from "./SearchBody.module.scss";
 
-const Repositories = forwardRef(({ items, onRepoClick }, ref) => (
+const RepositoryList = forwardRef(({ items, onRepoClick }, ref) => (
   <div className={styles["repositories-container"]}>
     {items.map((item, index) => {
       const itemKey = `${item.id}${index}`;
@@ -19,4 +19,4 @@ const Repositories = forwardRef(({ items, onRepoClick }, ref) => (
   </div>
 ));
 
-export default Repositories;
+export default RepositoryList;

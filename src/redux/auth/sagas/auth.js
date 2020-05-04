@@ -9,8 +9,10 @@ import fetchStatuses from "../../../constants/fetchStatuses";
 export function* getAccessTokenSaga() {
   try {
     const code = yield select(getAuthCodeSelector);
+
     yield put(setFetchStatus(fetchStatuses.IN_PROGRESS));
     const data = yield call(getAccessTokenRequest, code);
+
     const { access_token } = parse(data);
 
     if (access_token) {

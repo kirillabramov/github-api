@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import GithubLogin from "../github-login";
-import appLinks from "../../constants/appLinks";
+import LoginPage from "../components/login-page";
+import appLinks from "./appLinks";
 
 const Public = () => {
   return (
@@ -9,7 +9,7 @@ const Public = () => {
       <Route
         path={[appLinks.login, appLinks.githubCallback]}
         exact
-        component={GithubLogin}
+        component={LoginPage}
       />
       <Redirect
         to={{

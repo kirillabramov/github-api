@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import styles from "./Modal.module.scss";
+import styles from "./Iframe.module.scss";
 
 const IFrame = ({ children, ...props }) => {
   const [contentRef, setContentRef] = useState(null);

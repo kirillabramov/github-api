@@ -13,8 +13,8 @@ import {
 import Sorting from "../sorting";
 
 import styles from "./SearchPage.module.scss";
-import Modal from "../modal";
-import ModalBody from "../modal/ModalBody";
+import Modal from "../repository-list";
+import ModalBody from "../repository-list/ModalBody";
 
 const SearchPage = () => {
   const [activeItem, setActiveItem] = useState(null);

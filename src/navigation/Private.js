@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Redirect, Route } from "react-router-dom";
-import SearchPage from "../pages/SearchPage";
-import appLinks from "../../constants/appLinks";
+import SearchPage from "../components/search-page";
+import appLinks from "./appLinks";
 
 const Private = () => {
   return (

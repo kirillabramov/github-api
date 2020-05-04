@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Repository.module.scss";
 
 const Repository = ({ item, lastRepoElementRef, onClick }) => {
-  const { description, forks_count, stargazers_count, name } = item;
+  const { description, forks_count, stargazers_count, name } = item || {};
 
   const handleClick = () => {
     onClick(item);
